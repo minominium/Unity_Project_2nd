@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Map
+  - NPC
+  - Interact
+  - Food
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Interaction
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - UpperUI
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2216767539
+    locked: 0
+  - name: Things0
+    uniqueID: 2139286531
+    locked: 0
+  - name: Things1
+    uniqueID: 182094041
+    locked: 0
+  - name: Things2
+    uniqueID: 1345930739
+    locked: 0
+  - name: Things3
+    uniqueID: 2529423289
+    locked: 0
+  - name: Entities
+    uniqueID: 2829864543
+    locked: 0
+  - name: Interact
+    uniqueID: 4259150665
+    locked: 0

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/00_Title.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/01_ServeCut.unity
+    guid: d6ff5c26f8e13d54b9a27ac4ecefa2ef
+  - enabled: 1
+    path: Assets/Scenes/01_Serve.unity
+    guid: 0687e789510d92549b7f51f2fc310cfb
+  - enabled: 1
+    path: Assets/Scenes/02_CookCut.unity
+    guid: 1cbbe490917863c43ad9d6e79875786c
+  - enabled: 1
+    path: Assets/Scenes/02_Cook.unity
+    guid: 5bf49a4c0fa8c1445a8c83950910f730
+  - enabled: 1
+    path: Assets/Scenes/03_ManageCut.unity
+    guid: 971c20d828cc701428c389c78559373f
+  - enabled: 1
+    path: Assets/Scenes/03_Manage.unity
+    guid: 990279bd622cb4d4dbe40c51c52fc47b
+  - enabled: 1
+    path: Assets/Scenes/04_Ending_1_Bad.unity
+    guid: 7c26fdff5f6aafb42a1bd9cf2b26d1e8
+  - enabled: 1
+    path: Assets/Scenes/04_Ending_2_Normal.unity
+    guid: 43c99454f4047ce47be044c25d6b3d05
+  - enabled: 1
+    path: Assets/Scenes/98_Loading.unity
+    guid: a87071b09e1baba43aa8e114f57e2030
+  - enabled: 0
+    path: Assets/Scenes/99_Characters.unity
+    guid: 6fcbcd55a5b466849b926c57cc636188
+  m_configObjects: {}
