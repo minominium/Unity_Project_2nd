@@ -7,6 +7,7 @@ public class PlayerCooking : MonoBehaviour
 {
     //// Public variables
     public DialogManage uiManage;
+    public GameObject panel;
     public Sprite sprite_Naporitan;
     public Sprite sprite_Sandwich;
 
@@ -27,12 +28,19 @@ public class PlayerCooking : MonoBehaviour
     private bool isCooking = false;
     private int cookState = 0;
 
+    [SerializeField] private int missionCount = 0;
+
+    private float timer = 0;
+    private Image panelFade;
+
     // Start is called before the first frame update
     void Start()
     {
         playerMode = GetComponent<PlayerMode>();
         playerControl = GetComponent<PlayerControl>();
         foodServing = GetComponentsInChildren<SpriteRenderer>();
+
+        panelFade = panel.GetComponent<Image>();
 
         stove = GameObject.Find("GasStove");
         stoveSprites = stove.GetComponentsInChildren<SpriteRenderer>();
@@ -49,6 +57,19 @@ public class PlayerCooking : MonoBehaviour
     void Update()
     {
         Cooking();
+        if (missionCount == 2)
+        {
+            playerMode.ControlState = PlayerMode.CUTSCENE;
+            timer += Time.deltaTime;
+            panelFade.color = new Color(0, 0, 0, timer);
+            if (timer >= 1)
+            {
+                timer = 0;
+                SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
+                sceneChanger.toScene++;
+                sceneChanger.loadingDone = true;
+            }
+        }
     }
 
     private void Cooking()
@@ -82,6 +103,7 @@ public class PlayerCooking : MonoBehaviour
                             cookState = 0;
                             for (int i = 1; i < 5; ++i)
                             { stoveSprites[i].enabled = true; }
+                            missionCount++;
                         }
                     }
                 }

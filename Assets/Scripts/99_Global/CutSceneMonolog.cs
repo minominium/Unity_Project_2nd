@@ -13,8 +13,6 @@ public class CutSceneMonolog : MonoBehaviour
     private CutSceneDialog dialogComp;
     private int dialogNum;
 
-    private float timer = 0.0f;
-
     private void Start()
     {
         dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 1;
@@ -38,11 +36,9 @@ public class CutSceneMonolog : MonoBehaviour
                 }
                 else
                 {
-                    timer = 0;
                     SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
                     sceneChanger.toScene++;
                     sceneChanger.loadingDone = true;
-                    Debug.Log(timer);
                 }
             }
         }
@@ -57,11 +53,26 @@ public class CutSceneMonolog : MonoBehaviour
                 }
                 else
                 {
-                    timer = 0;
                     SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
                     sceneChanger.toScene++;
                     sceneChanger.loadingDone = true;
-                    Debug.Log(timer);
+                }
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (dialogNum < 505)
+                {
+                    dialogNum++;
+                    dialogText.text = dialogComp.dialogDict[dialogNum];
+                }
+                else
+                {
+                    SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
+                    sceneChanger.toScene++;
+                    sceneChanger.loadingDone = true;
                 }
             }
         }

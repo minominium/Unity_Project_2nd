@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerManage : MonoBehaviour
 {
     [SerializeField] public DialogManage uiManage;
+    public GameObject panel;
+
     private PlayerMode playerMode;
 
     private Text budget;
@@ -20,11 +22,15 @@ public class PlayerManage : MonoBehaviour
     private int budgetInteger = 10000;
     private int indicatorInteger = 0;
 
-    private int count = 0;
+    [SerializeField] private int missionCount = 0;
+
+    private float timer = 0;
+    private Image panelFade;
 
     // Start is called before the first frame update
     void Start()
     {
+        panelFade = panel.GetComponent<Image>();
         budget = GameObject.Find("TextBudget").GetComponent<Text>();
         budget.text = "Budget : กอ" + string.Format("{0:##,###}", budgetInteger).ToString();
         total = GameObject.Find("TextTotal").GetComponent<Text>();
@@ -87,7 +93,20 @@ public class PlayerManage : MonoBehaviour
             {
                 budget.text = "Budget : กอ" + string.Format("{0:##,###}", budgetInteger - totalPrice).ToString();
                 uiManage.Interaction();
-                Debug.Log("Good");
+
+                if (missionCount == 1)
+                {
+                    playerMode.ControlState = PlayerMode.CUTSCENE;
+                    timer += Time.deltaTime;
+                    panelFade.color = new Color(0, 0, 0, timer);
+                    if (timer >= 1)
+                    {
+                        timer = 0;
+                        SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
+                        sceneChanger.toScene++;
+                        sceneChanger.loadingDone = true;
+                    }
+                }
             }
         }
         else
