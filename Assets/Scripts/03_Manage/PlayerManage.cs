@@ -35,7 +35,7 @@ public class PlayerManage : MonoBehaviour
         playerMode = GameObject.Find("PlayerServe").GetComponent<PlayerMode>();
 
         budget = GameObject.Find("TextBudget").GetComponent<Text>();
-        budget.text = "Budget : ￥" + string.Format("{0:##,###}", budgetInteger).ToString();
+        budget.text = "예산 : \n ￥" + string.Format("{0:##,###}", budgetInteger).ToString();
         total = GameObject.Find("TextTotal").GetComponent<Text>();
         amountObj = GameObject.Find("Amounts");
         amountIndicator = amountObj.GetComponentInChildren<Image>();
@@ -110,7 +110,7 @@ public class PlayerManage : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    budget.text = "Budget : ￥" + string.Format("{0:##,###}", budgetInteger - totalPrice).ToString();
+                    budget.text = "예산 : \n ￥" + string.Format("{0:##,###}", budgetInteger - totalPrice).ToString();
                     uiManage.Interaction();
                     missionCount = 1;
                 }
