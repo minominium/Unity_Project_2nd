@@ -31,6 +31,9 @@ public class PlayerManage : MonoBehaviour
     void Start()
     {
         panelFade = panel.GetComponent<Image>();
+
+        playerMode = GameObject.Find("PlayerServe").GetComponent<PlayerMode>();
+
         budget = GameObject.Find("TextBudget").GetComponent<Text>();
         budget.text = "Budget : กอ" + string.Format("{0:##,###}", budgetInteger).ToString();
         total = GameObject.Find("TextTotal").GetComponent<Text>();
@@ -89,23 +92,27 @@ public class PlayerManage : MonoBehaviour
         {
             confirmText.enabled = true;
             confirmImage.enabled = true;
-            if(Input.GetKeyDown(KeyCode.F))
+            
+            if (missionCount == 1)
             {
-                budget.text = "Budget : กอ" + string.Format("{0:##,###}", budgetInteger - totalPrice).ToString();
-                uiManage.Interaction();
-
-                if (missionCount == 1)
+                playerMode.ControlState = PlayerMode.CUTSCENE;
+                timer += Time.deltaTime;
+                panelFade.color = new Color(0, 0, 0, timer);
+                if (timer >= 1)
                 {
-                    playerMode.ControlState = PlayerMode.CUTSCENE;
-                    timer += Time.deltaTime;
-                    panelFade.color = new Color(0, 0, 0, timer);
-                    if (timer >= 1)
-                    {
-                        timer = 0;
-                        SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
-                        sceneChanger.toScene++;
-                        sceneChanger.loadingDone = true;
-                    }
+                    timer = 0;
+                    SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
+                    sceneChanger.toScene++;
+                    sceneChanger.loadingDone = true;
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    budget.text = "Budget : กอ" + string.Format("{0:##,###}", budgetInteger - totalPrice).ToString();
+                    uiManage.Interaction();
+                    missionCount = 1;
                 }
             }
         }

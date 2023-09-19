@@ -25,5 +25,11 @@ public class CutSceneDialog : MonoBehaviour
         dialogDict.Add(503, "BuildIndex 5, Dialog No.03 \n");
         dialogDict.Add(504, "BuildIndex 5, Dialog No.04 \n");
         dialogDict.Add(505, "BuildIndex 5, Dialog No.05 \n");
+
+        dialogDict.Add(701, "BuildIndex 7, Dialog No.01 \n");
+        dialogDict.Add(702, "BuildIndex 7, Dialog No.02 \n");
+        dialogDict.Add(703, "BuildIndex 7, Dialog No.03 \n");
+        dialogDict.Add(704, "BuildIndex 7, Dialog No.04 \n");
+        dialogDict.Add(705, "BuildIndex 7, Dialog No.05 \n");
     }
 }

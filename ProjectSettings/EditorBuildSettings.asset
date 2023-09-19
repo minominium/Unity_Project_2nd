@@ -26,12 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/03_Manage.unity
     guid: 990279bd622cb4d4dbe40c51c52fc47b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/04_Ending_1_Bad.unity
     guid: 7c26fdff5f6aafb42a1bd9cf2b26d1e8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/04_Ending_2_Normal.unity
     guid: 43c99454f4047ce47be044c25d6b3d05
+  - enabled: 1
+    path: Assets/Scenes/04_Ending_Demo.unity
+    guid: 80023559186ba104798e71adcf9ce456
   - enabled: 1
     path: Assets/Scenes/98_Loading.unity
     guid: a87071b09e1baba43aa8e114f57e2030

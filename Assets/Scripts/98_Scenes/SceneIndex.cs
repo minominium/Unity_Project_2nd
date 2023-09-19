@@ -38,7 +38,7 @@ public class SceneIndex : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         nowScene = scene.buildIndex;
-        if(nowScene == 9)
+        if(nowScene == 8)
         {
             toScene++;
             loadingDone = true;
