@@ -5073,13 +5073,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3428812420572026060, guid: d9cec32545b91784a81bc6ab32ca18d9, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428812420572026060, guid: d9cec32545b91784a81bc6ab32ca18d9, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3719527515096170849, guid: d9cec32545b91784a81bc6ab32ca18d9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1822207206, guid: 17181b7c04b70b94e917f054bbf3c902, type: 3}
+      objectReference: {fileID: 742788520, guid: 6ca0cf5788b253a49bb61c65616bb7da, type: 3}
     - target: {fileID: 6649076304765654674, guid: d9cec32545b91784a81bc6ab32ca18d9, type: 3}
       propertyPath: m_Name
-      value: CustomerOldMan
+      value: CustomerMan
       objectReference: {fileID: 0}
     - target: {fileID: 6649076304765654674, guid: d9cec32545b91784a81bc6ab32ca18d9, type: 3}
       propertyPath: m_Layer
@@ -6330,7 +6338,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4085634682151787056, guid: 7bde535da88508946abbf6dc3985183f, type: 3}
       propertyPath: m_Name
-      value: CustomerOldWoman
+      value: CustomerWoman
       objectReference: {fileID: 0}
     - target: {fileID: 5637670938725012103, guid: 7bde535da88508946abbf6dc3985183f, type: 3}
       propertyPath: m_LocalPosition.x
