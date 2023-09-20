@@ -1710,7 +1710,7 @@ Transform:
   m_GameObject: {fileID: 1381817370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: -0.9}
+  m_LocalPosition: {x: 0, y: 0.45, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1773,7 +1773,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.9994243
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1791,7 +1791,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -1809,11 +1809,11 @@ PrefabInstance:
       objectReference: {fileID: 1676162465}
     - target: {fileID: 1079510861285643200, guid: b90c0b0ff27674e42840585e963f6de1, type: 3}
       propertyPath: m_Size.x
-      value: 0.7
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 1079510861285643200, guid: b90c0b0ff27674e42840585e963f6de1, type: 3}
       propertyPath: m_Size.y
-      value: 1.05
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 1079510861285643200, guid: b90c0b0ff27674e42840585e963f6de1, type: 3}
       propertyPath: m_Offset.x
@@ -1825,15 +1825,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1586499106615880908, guid: b90c0b0ff27674e42840585e963f6de1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1586499106615880908, guid: b90c0b0ff27674e42840585e963f6de1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1586499106615880908, guid: b90c0b0ff27674e42840585e963f6de1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.46
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1586499106615880908, guid: b90c0b0ff27674e42840585e963f6de1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3848,8 +3848,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 1.5}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3896,10 +3896,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -35816631
+  m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07b1a6d12d07a4244955a08a24f5e547, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

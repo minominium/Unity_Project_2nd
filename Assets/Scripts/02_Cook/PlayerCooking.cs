@@ -101,7 +101,7 @@ public class PlayerCooking : MonoBehaviour
                             foodServing[1].name = "Null";
                             hasFood = false;
                             cookState = 0;
-                            for (int i = 1; i < 5; ++i)
+                            for (int i = 0; i < 5; ++i)
                             { stoveSprites[i].enabled = true; }
                             missionCount++;
                         }
@@ -166,7 +166,7 @@ public class PlayerCooking : MonoBehaviour
         foodServing[1].sprite = foodServingDict[str];
         foodServing[1].name = str;
         foodServing[1].enabled = false;
-        for (int i = 1; i < 5; ++i)
+        for (int i = 0; i < 5; ++i)
         { stoveSprites[i].enabled = false; }
         stoveSprites[5].enabled = true;
         cookIndicator_Image[0].enabled = true;
