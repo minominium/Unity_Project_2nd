@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,8 +16,13 @@ public class CutSceneMonolog : MonoBehaviour
     private bool toTheEnd = false;
     private float timer = 0.0f;
 
+    private AudioSource audioSource;
+    private bool audioCon = false;
+
     private void Start()
     {
+        audioSource = GameObject.Find("SceneChanger").GetComponent<AudioSource>();
+
         dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 1;
         dialogComp = GetComponent<CutSceneDialog>();
         panelFade = GameObject.Find("TitleFade").GetComponent<Image>();
@@ -46,6 +52,7 @@ public class CutSceneMonolog : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().buildIndex == 3)
         {
+            audioSource.volume = 0.05f;
             if (Input.GetKeyDown(KeyCode.F))
             {
                 if (dialogNum < 305)
@@ -80,6 +87,12 @@ public class CutSceneMonolog : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().buildIndex == 7)
         {
+            if(!audioCon)
+            {
+                audioSource.pitch = 0.35f;
+                audioCon = true;
+            }
+
             if(!readyToEnd)
             {
                 if (Input.GetKeyDown(KeyCode.F))
@@ -99,6 +112,8 @@ public class CutSceneMonolog : MonoBehaviour
             {
                 if(timer > 1 && !toTheEnd)
                 {
+                    audioSource.loop = false;
+                    audioSource.mute = true;
                     dialogText.text = "Demo End";
                     if (Input.GetKeyDown(KeyCode.F))
                     {
@@ -120,6 +135,7 @@ public class CutSceneMonolog : MonoBehaviour
                 else
                 {
                     timer += Time.deltaTime;
+                    audioSource.volume = 0.05f * (1 - timer);
                     panelFade.color = new(0, 0, 0, timer);
                 }
             }
