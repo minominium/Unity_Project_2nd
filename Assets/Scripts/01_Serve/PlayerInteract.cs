@@ -23,6 +23,10 @@ public class PlayerInteract : MonoBehaviour
     private bool hasFood = false;
     [SerializeField] private int missionCount = 0;
 
+    private AudioSource audioSource;
+    private AudioStruct audioStruct;
+    private int musicTrack = 0;
+
     private float timer = 0;
     private Image panelFade;
 
@@ -78,6 +82,30 @@ public class PlayerInteract : MonoBehaviour
                             foodServing[1].sprite = foodServingDict[rayHit.collider.name];
                             foodServing[1].name = rayHit.collider.name;
                             hasFood = true;
+                        }
+                        else if (rayHit.collider.CompareTag("Interact"))
+                        {
+                            playerMode.ControlState = PlayerMode.TALKING;
+                            uiManage.Interaction(rayHit.collider.gameObject);
+                            audioSource = GameObject.Find("SceneChanger").GetComponent<AudioSource>();
+                            audioStruct = GameObject.Find("SceneChanger").GetComponent<AudioStruct>();
+                            if (musicTrack == 0)
+                            {
+                                audioSource.clip = audioStruct.background1;
+                                audioSource.Play();
+                                musicTrack = 1;
+                            }
+                            else if(musicTrack == 1)
+                            {
+                                audioSource.clip = audioStruct.background2;
+                                audioSource.Play();
+                                musicTrack = 2;
+                            }
+                            else if(musicTrack == 2)
+                            {
+                                audioSource.clip = null;
+                                musicTrack = 0;
+                            }
                         }
                     }
                     else

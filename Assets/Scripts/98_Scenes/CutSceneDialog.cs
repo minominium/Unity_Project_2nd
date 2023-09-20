@@ -33,5 +33,10 @@ public class CutSceneDialog : MonoBehaviour
         dialogDict.Add(705, " 특별히 맛있지는 않은 것 같은데...\n");
         dialogDict.Add(706, " 어ㅈ제 내가 뭘 먹었더라...? \n 갑자기 나도 배가 고프다.");
         dialogDict.Add(707, " 소ㄴ..소시지.. \n ㅃㅕ..가루치즈...");
+
+        dialogDict.Add(711, "");
+        dialogDict.Add(712, "");
+        dialogDict.Add(713, "");
+        dialogDict.Add(714, "");
     }
 }

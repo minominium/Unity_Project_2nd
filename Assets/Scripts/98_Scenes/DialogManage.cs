@@ -10,6 +10,8 @@ public class DialogManage : MonoBehaviour
     
     public bool isUIActive = false;
 
+    private int musicTrack = 0;
+
     public void Interaction(GameObject obj)
     {
         if(!isUIActive) 
@@ -32,7 +34,21 @@ public class DialogManage : MonoBehaviour
             {
                 if(obj.name == "MusicBox")
                 {
-                    dialogText.text = " 이건 " + obj.name + "이다.";
+                    if (musicTrack == 0)      
+                    { 
+                        musicTrack = 1;
+                        dialogText.text = "레코드 판 1번 트랙을 재생했다.\n";
+                    }
+                    else if (musicTrack == 1) 
+                    { 
+                        musicTrack = 2;
+                        dialogText.text = "레코드 판 2번 트랙을 재생했다.\n";
+                    }
+                    else if (musicTrack == 2) 
+                    { 
+                        musicTrack = 0;
+                        dialogText.text = "음악을 껐다..\n";
+                    }
                 }
                 else if(obj.name == "GasStove")
                 {

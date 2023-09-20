@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CutSceneMonolog : MonoBehaviour
 {
+    private SceneIndex sceneChanger;
+
     public GameObject dialogUI;
     public Text dialogText;
     private Image panelFade;
@@ -21,9 +23,15 @@ public class CutSceneMonolog : MonoBehaviour
 
     private void Start()
     {
+        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
         audioSource = GameObject.Find("SceneChanger").GetComponent<AudioSource>();
 
         dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 1;
+        if (SceneManager.GetActiveScene().buildIndex == 7 && audioSource.clip.name == "On The Rocks")
+        {
+            dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 11;
+        }
+
         dialogComp = GetComponent<CutSceneDialog>();
         panelFade = GameObject.Find("TitleFade").GetComponent<Image>();
 
@@ -44,7 +52,6 @@ public class CutSceneMonolog : MonoBehaviour
                 }
                 else
                 {
-                    SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
                     sceneChanger.toScene++;
                     sceneChanger.loadingDone = true;
                 }
@@ -62,7 +69,6 @@ public class CutSceneMonolog : MonoBehaviour
                 }
                 else
                 {
-                    SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
                     sceneChanger.toScene++;
                     sceneChanger.loadingDone = true;
                 }
@@ -79,7 +85,6 @@ public class CutSceneMonolog : MonoBehaviour
                 }
                 else
                 {
-                    SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
                     sceneChanger.toScene++;
                     sceneChanger.loadingDone = true;
                 }
