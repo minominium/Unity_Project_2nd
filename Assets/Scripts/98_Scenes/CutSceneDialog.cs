@@ -20,7 +20,7 @@ public class CutSceneDialog : MonoBehaviour
         dialogDict.Add(304, " 음식을 고르고, F를 연타해 \n 요리를 완성해서 문 밖으로 보내주세요.");
         dialogDict.Add(305, " 키보드 화살표 : 바라보기, 이동 \n Q or E : 선택, F : 상호작용");
 
-        dialogDict.Add(501, " 요리까지 해낸 아는 당신은 \n 오너가 될 자격이 있습니다.");
+        dialogDict.Add(501, " 요리까지 해낸 당신은 \n 오너가 될 자격이 있습니다.");
         dialogDict.Add(502, " 마지막 단계를 통해 \n 자격을 증명해주세요.");
         dialogDict.Add(503, " 3번 미션은 \"재료 주문\"입니다. \n");
         dialogDict.Add(504, " 주어진 예산 안에서 \n 필요한 재료를 주문해 주세요.");
