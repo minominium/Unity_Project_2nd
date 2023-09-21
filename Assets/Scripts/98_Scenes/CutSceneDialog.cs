@@ -34,9 +34,13 @@ public class CutSceneDialog : MonoBehaviour
         dialogDict.Add(706, " 어ㅈ제 내가 뭘 먹었더라...? \n 갑자기 나도 배가 고프다.");
         dialogDict.Add(707, " 소ㄴ..소시지.. \n ㅃㅕ..가루치즈...");
 
-        dialogDict.Add(711, "");
-        dialogDict.Add(712, "");
-        dialogDict.Add(713, "");
-        dialogDict.Add(714, "");
+        dialogDict.Add(711, " 20XX년 XX월 XX일. \n");
+        dialogDict.Add(712, " 이 식당, 아무래도 이상하다. \n");
+        dialogDict.Add(713, " 도대체 그런 재료는 \n 누가 어디서 구해오는 거지?");
+        dialogDict.Add(714, " 생각만 해도 구역질이 난다. \n 손가락이랑 저민 살, 뼛가루라니...");
+        dialogDict.Add(715, " 이런 공간이 세상에 존재해서는 안된다.\n");
+        dialogDict.Add(716, " 내가 피해자가 될지도 모르는데...\n");
+        dialogDict.Add(717, " ...일은 그만두자. \n");
+        dialogDict.Add(718, " 그리고 빠른 시일 내에 \n 경찰에 신고해야 한다.");
     }
 }

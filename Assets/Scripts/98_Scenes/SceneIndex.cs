@@ -10,6 +10,8 @@ public class SceneIndex : MonoBehaviour
     public int toScene = 0;
     public bool loadingDone = false;
 
+    public bool budgetZero = false;
+
     private void Awake()
     {
         Application.targetFrameRate = 60;

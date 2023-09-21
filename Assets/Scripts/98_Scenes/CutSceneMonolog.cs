@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CutSceneMonolog : MonoBehaviour
 {
-    private SceneIndex sceneChanger;
+    private GameObject sceneChanger;
+    private SceneIndex sceneIndex;
 
     public GameObject dialogUI;
     public Text dialogText;
@@ -23,11 +24,12 @@ public class CutSceneMonolog : MonoBehaviour
 
     private void Start()
     {
-        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
-        audioSource = GameObject.Find("SceneChanger").GetComponent<AudioSource>();
+        sceneChanger = GameObject.Find("SceneChanger");
+        sceneIndex = sceneChanger.GetComponent<SceneIndex>();
+        audioSource = sceneChanger.GetComponent<AudioSource>();
 
         dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 1;
-        if (SceneManager.GetActiveScene().buildIndex == 7 && audioSource.clip.name == "On The Rocks")
+        if (SceneManager.GetActiveScene().buildIndex == 7 && audioSource.clip.name == "On The Rocks" && sceneIndex.budgetZero)
         {
             dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 11;
         }
@@ -52,8 +54,8 @@ public class CutSceneMonolog : MonoBehaviour
                 }
                 else
                 {
-                    sceneChanger.toScene++;
-                    sceneChanger.loadingDone = true;
+                    sceneIndex.toScene++;
+                    sceneIndex.loadingDone = true;
                 }
             }
         }
@@ -69,8 +71,8 @@ public class CutSceneMonolog : MonoBehaviour
                 }
                 else
                 {
-                    sceneChanger.toScene++;
-                    sceneChanger.loadingDone = true;
+                    sceneIndex.toScene++;
+                    sceneIndex.loadingDone = true;
                 }
             }
         }
@@ -85,8 +87,8 @@ public class CutSceneMonolog : MonoBehaviour
                 }
                 else
                 {
-                    sceneChanger.toScene++;
-                    sceneChanger.loadingDone = true;
+                    sceneIndex.toScene++;
+                    sceneIndex.loadingDone = true;
                 }
             }
         }
@@ -102,7 +104,19 @@ public class CutSceneMonolog : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    if (dialogNum < 707)
+                    if(dialogNum >= 711)
+                    {
+                        if(dialogNum < 718)
+                        {
+                            dialogNum++;
+                            dialogText.text = dialogComp.dialogDict[dialogNum];
+                        }
+                        else
+                        {
+                            readyToEnd = true;
+                        }
+                    }
+                    else if (dialogNum < 707)
                     {
                         dialogNum++;
                         dialogText.text = dialogComp.dialogDict[dialogNum];

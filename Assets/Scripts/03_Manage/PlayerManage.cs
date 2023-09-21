@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class PlayerManage : MonoBehaviour
     public GameObject panel;
 
     private PlayerMode playerMode;
+    private SceneIndex sceneChanger;
 
     private Text budget;
     private Text total;
@@ -33,6 +35,7 @@ public class PlayerManage : MonoBehaviour
         panelFade = panel.GetComponent<Image>();
 
         playerMode = GameObject.Find("PlayerServe").GetComponent<PlayerMode>();
+        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
 
         budget = GameObject.Find("TextBudget").GetComponent<Text>();
         budget.text = "예산 : \n ￥" + string.Format("{0:##,###}", budgetInteger).ToString();
@@ -51,37 +54,40 @@ public class PlayerManage : MonoBehaviour
     {
         int amountTmp = int.Parse(amountText[indicatorInteger].text);
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if(missionCount == 0)
         {
-            if (amountTmp > 0 && amountTmp <= 99)
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                --amountTmp;
-                amountText[indicatorInteger].text = amountTmp.ToString();
+                if (amountTmp > 0 && amountTmp <= 99)
+                {
+                    --amountTmp;
+                    amountText[indicatorInteger].text = amountTmp.ToString();
+                }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (amountTmp >= 0 && amountTmp < 99)
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                ++amountTmp;
-                amountText[indicatorInteger].text = amountTmp.ToString();
+                if (amountTmp >= 0 && amountTmp < 99)
+                {
+                    ++amountTmp;
+                    amountText[indicatorInteger].text = amountTmp.ToString();
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if(indicatorInteger > 0 && indicatorInteger <= 3)
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                --indicatorInteger;
-                amountIndicator.rectTransform.position = amountText[indicatorInteger].rectTransform.position;
+                if (indicatorInteger > 0 && indicatorInteger <= 3)
+                {
+                    --indicatorInteger;
+                    amountIndicator.rectTransform.position = amountText[indicatorInteger].rectTransform.position;
+                }
             }
-        }
-        else if(Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if(indicatorInteger >= 0 && indicatorInteger < 3)
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                ++indicatorInteger;
-                amountIndicator.rectTransform.position = amountText[indicatorInteger].rectTransform.position;
+                if (indicatorInteger >= 0 && indicatorInteger < 3)
+                {
+                    ++indicatorInteger;
+                    amountIndicator.rectTransform.position = amountText[indicatorInteger].rectTransform.position;
+                }
             }
         }
 
@@ -101,7 +107,6 @@ public class PlayerManage : MonoBehaviour
                 if (timer >= 1)
                 {
                     timer = 0;
-                    SceneIndex sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneIndex>();
                     sceneChanger.toScene++;
                     sceneChanger.loadingDone = true;
                 }
@@ -110,6 +115,10 @@ public class PlayerManage : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    if (budgetInteger - totalPrice == 0)
+                    {
+                        sceneChanger.budgetZero = true;
+                    }
                     budget.text = "예산 : \n ￥" + string.Format("{0:##,###}", budgetInteger - totalPrice).ToString();
                     uiManage.Interaction();
                     missionCount = 1;
