@@ -29,9 +29,12 @@ public class CutSceneMonolog : MonoBehaviour
         audioSource = sceneChanger.GetComponent<AudioSource>();
 
         dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 1;
-        if (SceneManager.GetActiveScene().buildIndex == 7 && audioSource.clip.name == "On The Rocks" && sceneIndex.budgetZero)
+        if(audioSource.clip != null)
         {
-            dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 11;
+            if (SceneManager.GetActiveScene().buildIndex == 7 && audioSource.clip.name == "On The Rocks" && sceneIndex.budgetZero)
+            {
+                dialogNum = SceneManager.GetActiveScene().buildIndex * 100 + 11;
+            }
         }
 
         dialogComp = GetComponent<CutSceneDialog>();
